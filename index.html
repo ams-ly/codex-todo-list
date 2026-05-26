@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme"></button>
+      <div class="eyebrow" data-i18n="eyebrow">Focus mode</div>
+      <h1 data-i18n="title">Todo List</h1>
+      <p class="subtitle" data-i18n="subtitle">Drop your tasks here, then add, complete, filter, and clear them. Everything saves locally, so a refresh will not wipe your list.</p>
+    </section>
+
+    <section class="content">
+      <form class="composer" id="todo-form">
+        <div class="composer-fields">
+          <input id="todo-input" type="text" autocomplete="off" maxlength="120" placeholder="Add a task, like: finish the weekly report" />
+          <div class="time-row">
+            <input id="todo-time" class="time-input" type="text" inputmode="numeric" autocomplete="off" />
+            <div class="time-presets" id="time-presets">
+              <button type="button" data-time-preset="now" data-i18n="presetNow">Now</button>
+              <button type="button" data-time-preset="1h" data-i18n="preset1h">+1h</button>
+              <button type="button" data-time-preset="tomorrow" data-i18n="presetTomorrow">Tomorrow 9:00</button>
+            </div>
+          </div>
+        </div>
+        <button type="submit" data-i18n="addButton">Add</button>
+      </form>
+
+      <div class="toolbar">
+        <div class="stats">
+          <span class="pill" id="count-total">Total 0</span>
+          <span class="pill" id="count-active">Active 0</span>
+          <span class="pill" id="count-done">Done 0</span>
+        </div>
+        <div class="toolbar-right">
+          <div class="filters" id="filters">
+            <button type="button" class="active" data-filter="all" data-i18n="filterAll">All</button>
+            <button type="button" data-filter="active" data-i18n="filterActive">Active</button>
+            <button type="button" data-filter="completed" data-i18n="filterDone">Done</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="list" id="todo-list"></ul>
+      <div class="empty" id="empty-state" hidden data-i18n="emptyState">No tasks yet. Create your first one.</div>
+
+      <div class="footer">
+        <span data-i18n="shortcut">Shortcut: press Enter to add a task</span>
+        <div class="footer-right">
+          <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">Chinese</button>
+          <button type="button" id="clear-completed" data-i18n="clearCompleted">Clear completed</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
